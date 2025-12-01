@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SpaceX</string>
+    <string name="name">Name</string>
+    <string name="species">Species</string>
+    <string name="type">Type</string>
+    <string name="origin">Origin</string>
+    <string name="location">Location</string>
+    <string name="navigation_rail">Navigation Rail</string>
+    <string name="navigation_drawer">Navigation Drawer</string>
+    <string name="navigation_bottom">Navigation Bottom</string>
+    <string name="status">Status</string>
+    <string name="go_back">Go back</string>
+</resources>
