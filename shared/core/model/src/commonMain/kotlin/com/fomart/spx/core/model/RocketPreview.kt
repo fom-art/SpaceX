@@ -1,9 +1,9 @@
 package com.fomart.spx.core.model
 
-import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalDate
 
 data class RocketPreview(
-    val id: Int,
+    val rocketId: String,
     val name: String,
-    val firstFlightDate: LocalDateTime
+    val firstFlightDate: LocalDate
 )

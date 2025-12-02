@@ -13,11 +13,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.fomart.spx.navigation.rememberShowNavigationBar
-import com.fomart.spx.navigation.TopLevelDestination
 import com.fomart.spx.core.data.util.NetworkMonitor
-import com.fomart.spx.shared.feature.catalog.navigation.navigateToCatalog
-import com.fomart.spx.shared.feature.favorites.navigation.navigateToFavorites
+import com.fomart.spx.ui.navigation.TopLevelDestination
+import com.fomart.spx.navigation.rememberShowNavigationBar
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -58,11 +56,13 @@ class AppStateStore(
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() {
             return TopLevelDestination.entries.firstOrNull { topLevelDestination ->
-                currentDestination?.hasRoute(route = topLevelDestination.screenRoute) ?: false
+                topLevelDestination?.let {
+                    currentDestination?.hasRoute(route = it.screenRoute) ?: false
+                } == true
             }
         }
     val showNavigationBar: Boolean
-    @Composable get() = rememberShowNavigationBar(currentTopLevelDestination)
+        @Composable get() = rememberShowNavigationBar(currentTopLevelDestination)
 
 
     init {
@@ -94,8 +94,7 @@ class AppStateStore(
             }
 
             when (topLevelDestination) {
-                is TopLevelDestination.Favorites -> navController.navigateToFavorites(topLevelNavOptions)
-                is TopLevelDestination.Characters -> navController.navigateToCatalog(topLevelNavOptions)
+                else -> {}
             }
         }
     }

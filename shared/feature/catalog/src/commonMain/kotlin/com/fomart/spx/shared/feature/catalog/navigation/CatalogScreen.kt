@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.fomart.spx.shared.feature.catalog.presentation.CatalogScreen
+import com.fomart.spx.shared.feature.catalog.ui.CatalogScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -16,12 +16,10 @@ fun NavController.navigateToCatalog(
 
 fun NavGraphBuilder.catalogScreen(
     navigateToCharacterDetails: (String) -> Unit,
-    navigateToSearch: () -> Unit,
 ) {
     composable<CatalogScreen> {
         CatalogScreen(
-            navigateToCharacterDetails = navigateToCharacterDetails,
-            navigateToSearch = navigateToSearch
+            navigateToRocketDetails = navigateToCharacterDetails,
         )
     }
 }

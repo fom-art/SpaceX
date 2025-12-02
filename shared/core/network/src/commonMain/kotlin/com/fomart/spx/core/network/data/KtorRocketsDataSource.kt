@@ -16,7 +16,7 @@ import io.ktor.client.plugins.ServerResponseException
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
 import io.ktor.util.reflect.typeInfo
-import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalDate
 
 class KtorRocketsDataSource(private val client: HttpClient) : RocketsDataSource {
 
@@ -31,9 +31,9 @@ class KtorRocketsDataSource(private val client: HttpClient) : RocketsDataSource 
 
             val rocketPreviews = response.map { dto ->
                 RocketPreview(
-                    id = dto.id,
+                    rocketId = dto.rocketId,
                     name = dto.rocketName,
-                    firstFlightDate = parseDateTime(dto.firstFlight)
+                    firstFlightDate = parseDate(dto.firstFlight)
                 )
             }
 
@@ -82,15 +82,12 @@ class KtorRocketsDataSource(private val client: HttpClient) : RocketsDataSource 
         }
     }
 
-    private fun parseDateTime(dateString: String): LocalDateTime {
-        // Parse "2010-06-04" format
+    private fun parseDate(dateString: String): LocalDate {
         val parts = dateString.split("-")
-        return LocalDateTime(
+        return LocalDate(
             year = parts[0].toInt(),
-            monthNumber = parts[1].toInt(),
-            dayOfMonth = parts[2].toInt(),
-            hour = 0,
-            minute = 0
+            month = parts[1].toInt(),
+            day = parts[2].toInt()
         )
     }
 

@@ -15,6 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import org.jetbrains.compose.resources.stringResource
+import spacex.shared.core.designsystem.generated.resources.Res
+import spacex.shared.core.designsystem.generated.resources.go_back
 
 
 @OptIn(ExperimentalMaterial3Api::class)

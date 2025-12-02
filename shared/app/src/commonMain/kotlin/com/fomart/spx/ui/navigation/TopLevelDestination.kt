@@ -1,4 +1,4 @@
-package com.fomart.spx.navigation
+package com.fomart.spx.ui.navigation
 
 import com.fomart.spx.core.model.ui.UiImageVector
 import com.fomart.spx.core.model.ui.UiText
@@ -12,6 +12,6 @@ sealed class TopLevelDestination(
 ) {
 
     companion object {
-        val entries = listOf()
+        val entries: List<TopLevelDestination> = emptyList()
     }
 }

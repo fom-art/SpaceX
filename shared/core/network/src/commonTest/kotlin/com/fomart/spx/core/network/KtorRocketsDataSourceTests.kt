@@ -34,7 +34,7 @@ class KtorRocketsDataSourceIntegrationTests {
 
         // Verify each rocket preview has data
         result.data.forEach { preview ->
-            assertTrue(preview.id > 0)
+            assertTrue(preview.rocketId.isNotEmpty())
             assertTrue(preview.name.isNotEmpty())
         }
     }

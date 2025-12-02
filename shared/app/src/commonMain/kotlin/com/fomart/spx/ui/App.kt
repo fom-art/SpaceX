@@ -12,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
-import com.fomart.spx.navigation.SpxNavHost
+import com.fomart.spx.ui.navigation.SpxNavHost
 import com.fomart.spx.ui.navigation.SpxNavigationSuiteScaffold
 import com.fomart.spx.core.data.util.NetworkMonitor
 import com.fomart.spx.core.designsystem.components.LoadingOverlay
