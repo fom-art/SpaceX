@@ -9,13 +9,15 @@ internal fun Project.configureKtor(
     kotlinMultiplatformExtension: KotlinMultiplatformExtension,
 ) {
     kotlinMultiplatformExtension.sourceSets.getByName("commonMain").dependencies {
-        implementation(libs.findLibrary("ktor-client-core").get())
-        implementation(libs.findLibrary("ktor-client-logging").get())
+        api(libs.findLibrary("ktor-client-core").get())
+        api(libs.findLibrary("ktor-client-logging").get())
+        api(libs.findLibrary("ktor-client-content-negotiation").get())
+        api(libs.findLibrary("ktor-serialization-kotlinx-json").get())
     }
     kotlinMultiplatformExtension.sourceSets.getByName("androidMain").dependencies {
-        implementation(libs.findLibrary("ktor-client-okhttp").get())
+        api(libs.findLibrary("ktor-client-okhttp").get())
     }
     kotlinMultiplatformExtension.sourceSets.getByName("iosMain").dependencies {
-        implementation(libs.findLibrary("ktor-client-darwin").get())
+        api(libs.findLibrary("ktor-client-darwin").get())
     }
 }

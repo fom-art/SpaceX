@@ -1,18 +1,14 @@
 package plugin
 import com.android.build.api.dsl.ApplicationExtension
-import com.build_logic.convention.configureKotlinAndroid
+import configuration.configureKotlinAndroid
 import configuration.configureAndroid
 import configuration.configureAndroidCompose
-import dependency.configureComposeNavigation
-import dependency.configureFeature
-import dependency.configureKoin
 import extension.MIN_SDK
 import extension.TARGET_SDK
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.get
-import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class ApplicationPlugin: Plugin<Project> {
     override fun apply(target: Project) {

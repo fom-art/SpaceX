@@ -1,12 +1,13 @@
-package com.build_logic.convention
+package configuration
 
 import com.android.build.api.dsl.CommonExtension
+import configuration.ProjectConfig.JVM_TARGET
 import configuration.utils.javaTargetVersion
 import extension.COMPILE_SDK
 import extension.MIN_SDK
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
@@ -28,9 +29,9 @@ internal fun Project.configureKotlinAndroid(
 }
 
 private fun Project.configureKotlin() {
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = javaTargetVersion.toString()
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JVM_TARGET)
         }
     }
 }

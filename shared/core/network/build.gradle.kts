@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.build.logic.kotlin.multiplatform)
     alias(libs.plugins.build.logic.ktor)
     alias(libs.plugins.apollo)
-    alias(libs.plugins.build.logic.apollo)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -17,6 +17,15 @@ kotlin {
 
             //Logger
             implementation(libs.napier)
+
+            implementation(libs.kotlinx.serialization.json)
+        }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(kotlin("test-annotations-common"))
+
+            implementation(libs.mockito.kotlin)
+            implementation(libs.robolectric)
         }
     }
 }

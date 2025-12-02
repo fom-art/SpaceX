@@ -15,7 +15,9 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-//            implementation(compose.components.uiToolingPreview)
+            implementation(compose.components.uiToolingPreview)
+
+            api(libs.kotlinx.datetime)
         }
     }
 }
