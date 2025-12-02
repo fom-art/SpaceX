@@ -2,7 +2,6 @@ package com.fomart.spx.shared.feature.catalog.all.search.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fomart.spx.core.data.domain.repository.CharactersRepository
 import com.fomart.spx.core.model.domain.Result
 import com.fomart.spx.core.model.domain.error.Error
 import com.fomart.spx.core.model.PagedCharactersResult

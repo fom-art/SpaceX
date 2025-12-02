@@ -11,7 +11,7 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-val httpClient = HttpClient(engine) {
+val httpClient = HttpClient {
     install(Logging) {
         logger = object : Logger {
             override fun log(message: String) {
@@ -30,5 +30,4 @@ val httpClient = HttpClient(engine) {
             isLenient = true
         })
     }
-    install(HttpCookies)
 }
